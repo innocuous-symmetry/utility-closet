@@ -32,9 +32,10 @@ export default class Queue<TData> extends Array<TData> {
         const chunk = [];
 
         while (chunk.length < length && this.isNotEmpty) {
-            chunk.push(this.dequeue());
+            const data = this.dequeue();
+            if (data) chunk.push(data);
         }
 
-        return chunk;
+        return chunk satisfies TData[];
     }
 }
