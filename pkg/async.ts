@@ -1,4 +1,4 @@
-export async function promiseAllSafe<T>(tasks: Promise<T>[]) {
+export async function promiseAllOptimistic<T>(tasks: Promise<T>[]) {
     return await Promise.allSettled(tasks)
         .then(res => {
             const fulfilled: NonNullable<T>[] = [];
